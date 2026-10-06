@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header>
+            <div class="logo" id="logoHome" style="cursor: pointer;">
+                <span>🛡</span> CyberGuard
+            </div>
+            <nav class="nav-menu">
+                <button id="navInfoBtn" class="nav-link">📚 База хитрощів</button>
+                <span class="status">● LOCAL ANALYZER</span>
+            </nav>
+        </header>
+
+        <div id="mainPage">
+            <main>
+                <section class="hero">
+                    <div class="badge">CYBER SECURITY TOOL</div>
+                    <h1>
+                        Перевір повідомлення<br>
+                        <span>на ознаки шахрайства</span>
+                    </h1>
+                    <p>
+                        Встав підозріле повідомлення, посилання або текст
+                        і CyberGuard проведе локальний аналіз.
+                    </p>
+                </section>
+
+                <section class="scanner">
+                    <label for="inputText">Встав текст для аналізу</label>
+                    <textarea
+                        id="inputText"
+                        placeholder="Наприклад:
+Ваш акаунт буде заблоковано!
+Терміново перейдіть за посиланням та підтвердіть пароль..."
+                ></textarea>
+
+                    <div class="buttons">
+                        <button id="analyzeBtn">🔍 ПЕРЕВІРИТИ</button>
+                        <button id="clearBtn" class="secondary">ОЧИСТИТИ</button>
+                    </div>
+                </section>
+
+                <section id="result" class="result hidden">
+                    <div class="result-header">
+                        <div>
+                            <div class="small-title">ANALYSIS RESULT</div>
+                            <h2 id="riskTitle">Безпечно</h2>
+                        </div>
+                        <div id="riskIcon" class="risk-icon">✓</div>
+                    </div>
+
+                    <div class="risk-bar">
+                        <div id="riskProgress"></div>
+                    </div>
+
+                    <div class="score">
+                        Risk score: <strong id="riskScore">0</strong>/100
+                    </div>
+
+                    <div class="reasons">
+                        <h3>Що виявлено</h3>
+                        <ul id="reasonsList"></ul>
+                    </div>
+
+                    <div class="advice">
+                        <h3>💡 Рекомендація</h3>
+                        <p id="adviceText"></p>
+                    </div>
+                </section>
+
+                <section class="info-grid">
+                    <div class="info-card">
+                        <span>01</span>
+                        <h3>Локальний аналіз</h3>
+                        <p>Текст обробляється прямо у браузері.</p>
+                    </div>
+                    <div class="info-card">
+                        <span>02</span>
+                        <h3>Пошук ознак</h3>
+                        <p>Перевіряються підозрілі слова, посилання та вимоги.</p>
+                    </div>
+                    <div class="info-card">
+                        <span>03</span>
+                        <h3>Пояснення</h3>
+                        <p>CyberGuard показує, чому текст отримав такий результат.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <div id="infoPage" class="hidden">
+            <main>
+                <section class="hero">
+                    <div class="badge" style="color: #f0cf5b; border-color: #54461b;">SECURITY EDUCATION</div>
+                    <h1>Поширені<br><span>схеми шахрайства</span></h1>
+                    <p>Вивчи ці хитрощі, щоб ніколи не попастися на гачок хакерів та спамерів.</p>
+                </section>
+
+                <section class="hacks-grid">
+                    <div class="hack-card">
+                        <div class="hack-icon-box">🔗</div>
+                        <h3>Фішинг (Підроблені сайти)</h3>
+                        <p>Шахраї створюють точні копії сторінок авторизації Steam, Discord, Telegram або банків. Ви вводите туди пароль, і він миттєво відлітає зловмисникам.</p>
+                        <span class="hack-tip">💡 Захист: Завжди уважно перевіряй доменне ім'я (наприклад, steeamcommunity.com замість оригінального steamcommunity.com).</span>
+                    </div>
+
+                    <div class="hack-card">
+                        <div class="hack-icon-box">🎁</div>
+                        <h3>Фейкові роздачі та призи</h3>
+                        <p>«Ви виграли безкоштовні робукси, Brawl Pass або скіни! Щоб забрати, авторизуйтесь через бота або надішліть код із СМС». Найчастіший спосіб обману геймерів.</p>
+                        <span class="hack-tip">💡 Захист: Безкоштовний сир буває тільки в мишоловці. Офіційні розробники ніколи не просять коди 2FA для видачі призів.</span>
+                    </div>
+
+                    <div class="hack-card">
+                        <div class="hack-icon-box">⚠️</div>
+                        <h3>Загроза блокування та паніка</h3>
+                        <p>Вам пишуть від імені «Підтримки»: «Ваш акаунт помічено в підозрілих діях. Терміново перейдіть за посиланням, інакше через 24 години акаунт буде видалено!».</p>
+                        <span class="hack-tip">💡 Захист: Справжня підтримка ніколи не влаштовує паніку і не змушує клікати по дивних зовнішніх адресах.</span>
+                    </div>
+
+                    <div class="hack-card">
+                        <div class="hack-icon-box">🤖</div>
+                        <h3>Угон сесії (Session Hijacking)</h3>
+                        <p>Вас просять завантажити «простий скрипт для гри» або запустити файл .bat / .exe. Цей файл краде файли cookies з браузера та токени авторизації, обходячи будь-які паролі.</p>
+                        <span class="hack-tip">💡 Захист: Ніколи не завантажуйте файли від незнайомців із Discord або Telegram та тримайте антивірус увімкненим.</span>
+                    </div>
+                </section>
+
+                <div style="margin-top: 40px; text-align: center;">
+                    <button id="backToHomeBtn">← Повернутися на головну</button>
+                </div>
+            </main>
+        </div>
+
+        <footer>
+            CyberGuard v1.0 · Educational Security Project
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
